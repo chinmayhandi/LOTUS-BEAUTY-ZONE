@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Details | LOTUS BEAUTY ZONE</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="nav-container">
+      <a href="index.html" class="custom-logo">
+        <img src="assets/logo.png" alt="Logo" class="logo-icon">
+        <div class="logo-text">
+          <span class="logo-shree">LOTUS</span>
+          <span class="logo-sub">BEAUTY SALON<br>&amp;<br>SHREE HERBAL<br>BEAUTY PARLOUR</span>
+        </div>
+      </a>
+      
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link active">Services</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary">Book Appointment</a>
+      </div>
+
+      <div class="mobile-toggle">☰</div>
+    </div>
+  </header>
+
+  <!-- Service Detail Section -->
+  <section class="section" style="margin-top: 80px;" id="service-detail-data">
+    <div class="service-detail-container">
+      
+      <!-- Left: Image -->
+      <div class="sd-image-wrap">
+        <img id="sd-image" src="" alt="Service Image">
+      </div>
+      
+      <!-- Right: Content & Form -->
+      <div class="sd-content">
+        <h1 id="sd-title" class="sd-title">Service Name</h1>
+        <p id="sd-desc" class="sd-desc">Loading description...</p>
+        
+        <div class="price-list" id="sd-price-list">
+          <!-- Populated by JS -->
+        </div>
+        
+        <p><strong>Duration:</strong> <span id="sd-duration">...</span></p>
+        
+        <hr style="margin: 30px 0; border: 0; border-top: 1px solid rgba(0,0,0,0.1);">
+        
+        <button id="sd-book-link" class="btn btn-primary" style="margin-top: 10px;" onclick="openBookingModal('Selected Category', document.getElementById('sd-title').innerText, 'At Parlour, On-site')">
+          Book Appointment
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 5px;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+        </button>
+        
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- Booking Form Modal -->
+  <div id="booking-modal" class="modal-overlay"
+    style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2000; align-items: center; justify-content: center; backdrop-filter: blur(4px);">
+    <div class="modal-content"
+      style="background: var(--color-bg-white); padding: 40px; border-radius: var(--border-radius-lg); width: 90%; max-width: 550px; position: relative; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
+      <span onclick="closeBookingModal()"
+        style="position: absolute; top: 15px; right: 20px; font-size: 1.8rem; cursor: pointer; color: var(--color-text-muted); transition: color 0.3s;"
+        onmouseover="this.style.color='var(--color-primary-dark)'"
+        onmouseout="this.style.color='var(--color-text-muted)'">&times;</span>
+      <h3
+        style="margin-bottom: 10px; font-size: 2rem; color: var(--color-primary-dark); font-family: var(--font-heading);">
+        Book Appointment</h3>
+      <p style="margin-bottom: 25px; color: var(--color-text-muted); font-size: 0.95rem;">Fill out the details below to
+        confirm your booking via WhatsApp.</p>
+
+      <form class="booking-form" id="modal-booking-form" style="background: transparent; box-shadow: none; padding: 0;">
+        <div class="form-row" style="display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap;">
+          <div class="form-group" style="flex: 1; min-width: 200px; margin-bottom: 0;">
+            <label class="form-label" style="font-weight: 600; color: #444;">Full Name</label>
+            <input type="text" id="m-name" class="form-control" required placeholder="Enter your name">
+          </div>
+          <div class="form-group" style="flex: 1; min-width: 200px; margin-bottom: 0;">
+            <label class="form-label" style="font-weight: 600; color: #444;">Phone Number</label>
+            <input type="tel" id="m-phone" class="form-control" required placeholder="+91 XXXXX XXXXX">
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 20px;">
+          <label class="form-label" style="font-weight: 600; color: #444;">Selected Service Name</label>
+          <input type="text" id="m-type" class="form-control" readonly
+            style="background: #fff0f5; color: var(--color-primary-dark); font-weight: 600; border-color: rgba(233, 30, 99, 0.2);">
+          <input type="hidden" id="m-service">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 20px;">
+          <label class="form-label" style="font-weight: 600; color: #444;">Service Type</label>
+          <select id="m-location" class="form-control" required
+            style="cursor: pointer; appearance: auto; background-color: #fff;">
+            <!-- Populated dynamically by JS -->
+          </select>
+        </div>
+
+        <div class="form-group" id="m-branch-group" style="margin-bottom: 20px; display: none; animation: fadeIn 0.3s ease;">
+          <label class="form-label" style="font-weight: 600; color: #444;">Select Branch</label>
+          <select id="m-branch" class="form-control" style="cursor: pointer; appearance: auto; background-color: #fff;">
+            <option value="">Select Branch...</option>
+            <option value="Main Branch (Talikoti)">Main Branch (Talikoti)</option>
+            <option value="Sub Branch (Muddebihal)">Sub Branch (Muddebihal)</option>
+          </select>
+        </div>
+
+        <div id="m-address-group" style="display: none; animation: fadeIn 0.3s ease;">
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label class="form-label" style="font-weight: 600; color: #444;">Customer Address</label>
+            <textarea id="m-address" class="form-control" placeholder="House No, Street Name..." rows="2"></textarea>
+          </div>
+          <div class="form-row" style="display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap;">
+            <div class="form-group" style="flex: 1; min-width: 200px; margin-bottom: 0;">
+              <label class="form-label" style="font-weight: 600; color: #444;">Landmark</label>
+              <input type="text" id="m-landmark" class="form-control" placeholder="Near by landmark">
+            </div>
+            <div class="form-group" style="flex: 1; min-width: 200px; margin-bottom: 0;">
+              <label class="form-label" style="font-weight: 600; color: #444;">City / Area</label>
+              <input type="text" id="m-city" class="form-control" placeholder="City or Area name">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row" style="display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap;">
+          <div class="form-group" style="flex: 1; min-width: 200px; margin-bottom: 0;">
+            <label class="form-label" style="font-weight: 600; color: #444;">Preferred Date</label>
+            <input type="date" id="m-date" class="form-control" required>
+          </div>
+          <div class="form-group" style="flex: 1; min-width: 200px; margin-bottom: 0;">
+            <label class="form-label" style="font-weight: 600; color: #444;">Preferred Time</label>
+            <select id="m-time" class="form-control" required>
+              <option value="">Select Time</option>
+              <option value="10:00 AM">10:00 AM</option>
+              <option value="10:30 AM">10:30 AM</option>
+              <option value="11:00 AM">11:00 AM</option>
+              <option value="11:30 AM">11:30 AM</option>
+              <option value="12:00 PM">12:00 PM</option>
+              <option value="12:30 PM">12:30 PM</option>
+              <option value="01:00 PM">01:00 PM</option>
+              <option value="01:30 PM">01:30 PM</option>
+              <option value="02:00 PM">02:00 PM</option>
+              <option value="02:30 PM">02:30 PM</option>
+              <option value="03:00 PM">03:00 PM</option>
+              <option value="03:30 PM">03:30 PM</option>
+              <option value="04:00 PM">04:00 PM</option>
+              <option value="04:30 PM">04:30 PM</option>
+              <option value="05:00 PM">05:00 PM</option>
+              <option value="05:30 PM">05:30 PM</option>
+              <option value="06:00 PM">06:00 PM</option>
+              <option value="06:30 PM">06:30 PM</option>
+              <option value="07:00 PM">07:00 PM</option>
+              <option value="07:30 PM">07:30 PM</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 20px;">
+          <label class="form-label" style="font-weight: 600; color: #444;">Message (Optional)</label>
+          <textarea id="m-msg" class="form-control" placeholder="Any special requests?" rows="2"></textarea>
+        </div>
+
+        <div id="m-payment-note" style="margin-bottom: 30px; font-size: 0.95rem; font-weight: 500; color: var(--color-primary-dark); background: rgba(233, 30, 99, 0.05); padding: 12px; border-radius: 8px;">
+          <strong>🏪 At Parlour:</strong> Payment can be made directly at the parlour.
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" style="width: 100%; padding: 14px; font-size: 1.1rem; border-radius: 50px;">
+          Confirm Booking on WhatsApp
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 8px; vertical-align: middle;">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="index.html" class="custom-logo footer-logo">
+          <img src="assets/logo.png" alt="Logo" class="logo-icon">
+          <div class="logo-text">
+            <span class="logo-shree">LOTUS</span>
+            <span class="logo-sub">BEAUTY SALON<br>&amp;<br>SHREE HERBAL<br>BEAUTY PARLOUR</span>
+          </div>
+        </a>
+        <p class="footer-desc">Premium beauty and wellness services. We believe everyone deserves to feel confident and beautiful in their own skin.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/shreebeautysalon.in/" target="_blank">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="#">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+          </a>
+          <a href="https://wa.me/917022159756" target="_blank">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul class="footer-links">
+          <li><a href="service-detail.html?service=bridal-makeup">Bridal Makeup</a></li>
+          <li><a href="service-detail.html?service=facial">Facial</a></li>
+          <li><a href="service-detail.html?service=hair-styling">Hair Styling</a></li>
+          <li><a href="service-detail.html?service=mehndi">Mehndi</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Info</h4>
+        <ul class="footer-links" style="line-height: 1.6;">
+          <li><span style="display:block; font-weight:600; color:var(--color-accent-gold);">📍 Main Branch:</span> LOTUS BEAUTY ZONE, Mahendrakar Building, Vijay Nagar, Hunsagi Road, Talikoti - 586214</li>
+          <li style="margin-top:10px;"><span style="display:block; font-weight:600; color:var(--color-accent-gold);">📍 Sub Branch:</span> LOTUS BEAUTY ZONE, Raghavendra Temple, Mahantesh Nagar, Opp Gururaja Hittingirani, Muddebihal - 586212</li>
+          <li style="margin-top:10px;">📞 +91 70221 59756</li>
+          <li>⏰ Mon - Sun: 9:00 AM - 8:00 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 LOTUS BEAUTY ZONE. All rights reserved.</p>
+      <p class="made-by">
+        Made by 
+        <a href="https://www.instagram.com/stackverse.dev_/" target="_blank">
+          stackverse.dev_
+        </a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <!-- Floating Contact Buttons -->
+  <div class="floating-contact">
+    <a href="https://wa.me/917022159756" target="_blank" class="whatsapp-btn" aria-label="WhatsApp">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+    </a>
+    <a href="tel:7022159756" class="call-btn" aria-label="Call Us">
+      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+    </a>
+  </div>
+  <!-- Welcome Popup -->
+  <div id="welcomePopup" class="popup-overlay">
+    <div class="popup-box">
+      <h2>Welcome to LOTUS BEAUTY ZONE</h2>
+      <p>Follow us on Instagram and YouTube for latest updates, offers, and beauty work.</p>
+      <div class="popup-buttons">
+        <a href="https://www.instagram.com/shreebeautysalon.in/" target="_blank" class="insta-btn">Instagram</a>
+        <a href="#" target="_blank" class="youtube-btn">YouTube</a>
+      </div>
+      <button onclick="closePopup()" class="close-btn">Close</button>
+    </div>
+  </div>
+</body>
+
+</html>

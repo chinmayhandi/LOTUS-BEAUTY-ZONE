@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -70,9 +70,17 @@
           <div class="cd-item">
             <div class="cd-icon">📍</div>
             <div class="cd-text">
-              <h4>Location</h4>
-              <p>LOTUS BEAUTY ZONE & Shri Herbal Beauty Parlour, 1st Floor, GVVS College Road, beside GVVS Main Gate,
-                Nidgundi, Karnataka 586213</p>
+              <h4>Main Branch</h4>
+              <p>LOTUS BEAUTY ZONE, Mahendrakar Building, Vijay Nagar, Hunsagi Road, Talikoti - 586214</p>
+            </div>
+          </div>
+
+          <div class="cd-item">
+            <div class="cd-icon">📍</div>
+            <div class="cd-text">
+              <h4>Sub Branch</h4>
+              <p>LOTUS BEAUTY ZONE, Raghavendra Temple, Mahantesh Nagar, Opp Gururaja Hittingirani, Muddebihal - 586212
+              </p>
             </div>
           </div>
 
@@ -103,122 +111,146 @@
           book an appointment via WhatsApp.</p>
 
         <form class="booking-form" id="booking-form" style="background: transparent; box-shadow: none; padding: 0;">
-                <div class="form-row" style="display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap;">
-          <div class="form-group" style="flex: 1; min-width: 200px; margin-bottom: 0;">
-            <label class="form-label" style="font-weight: 600; color: #444;">Full Name</label>
-            <input type="text" id="b-name" class="form-control" required placeholder="Enter your name">
-          </div>
-          <div class="form-group" style="flex: 1; min-width: 200px; margin-bottom: 0;">
-            <label class="form-label" style="font-weight: 600; color: #444;">Phone Number</label>
-            <input type="tel" id="b-phone" class="form-control" required placeholder="+91 XXXXX XXXXX">
-          </div>
-        </div>
-
-        <div class="form-row" style="display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap;">
-          <div class="form-group" style="flex: 1; min-width: 200px; margin-bottom: 0;">
-            <label class="form-label" style="font-weight: 600; color: #444;">Category</label>
-            <select id="b-service" class="form-control" required style="cursor: pointer; appearance: auto; background-color: #fff;">
-              <option value="">Select a Category...</option>
-            </select>
-          </div>
-          <div class="form-group" style="flex: 1; min-width: 200px; margin-bottom: 0;">
-            <label class="form-label" style="font-weight: 600; color: #444;">Service Name</label>
-            <select id="b-type" class="form-control" required style="cursor: pointer; appearance: auto; background-color: #fff;">
-              <option value="">Select a Category first...</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-group" style="margin-bottom: 20px;">
-          <label class="form-label" style="font-weight: 600; color: #444;">Service Type</label>
-          <select id="b-location" class="form-control" required style="cursor: pointer; appearance: auto; background-color: #fff;">
-            <option value="">Select a Service first...</option>
-          </select>
-        </div>
-
-        <div class="form-group" id="b-branch-group" style="margin-bottom: 20px; display: none; animation: fadeIn 0.3s ease;">
-          <label class="form-label" style="font-weight: 600; color: #444;">Select Branch</label>
-          <select id="b-branch" class="form-control" style="cursor: pointer; appearance: auto; background-color: #fff;">
-            <option value="">Select Branch...</option>
-            <option value="Main Branch (Talikoti)">Main Branch (Talikoti)</option>
-            <option value="Sub Branch (Muddebihal)">Sub Branch (Muddebihal)</option>
-          </select>
-        </div>
-
-        <div id="b-address-group" style="display: none; animation: fadeIn 0.3s ease;">
-          <div class="form-group" style="margin-bottom: 20px;">
-            <label class="form-label" style="font-weight: 600; color: #444;">Customer Address</label>
-            <textarea id="b-address" class="form-control" placeholder="House No, Street Name..." rows="2"></textarea>
-          </div>
           <div class="form-row" style="display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap;">
             <div class="form-group" style="flex: 1; min-width: 200px; margin-bottom: 0;">
-              <label class="form-label" style="font-weight: 600; color: #444;">Landmark</label>
-              <input type="text" id="b-landmark" class="form-control" placeholder="Near by landmark">
+              <label class="form-label" style="font-weight: 600; color: #444;">Full Name</label>
+              <input type="text" id="b-name" class="form-control" required placeholder="Enter your name">
             </div>
             <div class="form-group" style="flex: 1; min-width: 200px; margin-bottom: 0;">
-              <label class="form-label" style="font-weight: 600; color: #444;">City / Area</label>
-              <input type="text" id="b-city" class="form-control" placeholder="City or Area name">
+              <label class="form-label" style="font-weight: 600; color: #444;">Phone Number</label>
+              <input type="tel" id="b-phone" class="form-control" required placeholder="+91 XXXXX XXXXX">
             </div>
           </div>
-        </div>
 
-        <div class="form-row" style="display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap;">
-          <div class="form-group" style="flex: 1; min-width: 200px; margin-bottom: 0;">
-            <label class="form-label" style="font-weight: 600; color: #444;">Preferred Date</label>
-            <input type="date" id="b-date" class="form-control" required>
+          <div class="form-row" style="display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap;">
+            <div class="form-group" style="flex: 1; min-width: 200px; margin-bottom: 0;">
+              <label class="form-label" style="font-weight: 600; color: #444;">Category</label>
+              <select id="b-service" class="form-control" required
+                style="cursor: pointer; appearance: auto; background-color: #fff;">
+                <option value="">Select a Category...</option>
+              </select>
+            </div>
+            <div class="form-group" style="flex: 1; min-width: 200px; margin-bottom: 0;">
+              <label class="form-label" style="font-weight: 600; color: #444;">Service Name</label>
+              <select id="b-type" class="form-control" required
+                style="cursor: pointer; appearance: auto; background-color: #fff;">
+                <option value="">Select a Category first...</option>
+              </select>
+            </div>
           </div>
-          <div class="form-group" style="flex: 1; min-width: 200px; margin-bottom: 0;">
-            <label class="form-label" style="font-weight: 600; color: #444;">Preferred Time</label>
-            <select id="b-time" class="form-control" required>
-              <option value="">Select Time</option>
-              <option value="10:00 AM">10:00 AM</option>
-              <option value="10:30 AM">10:30 AM</option>
-              <option value="11:00 AM">11:00 AM</option>
-              <option value="11:30 AM">11:30 AM</option>
-              <option value="12:00 PM">12:00 PM</option>
-              <option value="12:30 PM">12:30 PM</option>
-              <option value="01:00 PM">01:00 PM</option>
-              <option value="01:30 PM">01:30 PM</option>
-              <option value="02:00 PM">02:00 PM</option>
-              <option value="02:30 PM">02:30 PM</option>
-              <option value="03:00 PM">03:00 PM</option>
-              <option value="03:30 PM">03:30 PM</option>
-              <option value="04:00 PM">04:00 PM</option>
-              <option value="04:30 PM">04:30 PM</option>
-              <option value="05:00 PM">05:00 PM</option>
-              <option value="05:30 PM">05:30 PM</option>
-              <option value="06:00 PM">06:00 PM</option>
-              <option value="06:30 PM">06:30 PM</option>
-              <option value="07:00 PM">07:00 PM</option>
-              <option value="07:30 PM">07:30 PM</option>
+
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label class="form-label" style="font-weight: 600; color: #444;">Service Type</label>
+            <select id="b-location" class="form-control" required
+              style="cursor: pointer; appearance: auto; background-color: #fff;">
+              <option value="">Select a Service first...</option>
             </select>
           </div>
-        </div>
 
-        <div class="form-group" style="margin-bottom: 20px;">
-          <label class="form-label" style="font-weight: 600; color: #444;">Message (Optional)</label>
-          <textarea id="b-msg" class="form-control" placeholder="Any special requests?" rows="2"></textarea>
-        </div>
+          <div class="form-group" id="b-branch-group"
+            style="margin-bottom: 20px; display: none; animation: fadeIn 0.3s ease;">
+            <label class="form-label" style="font-weight: 600; color: #444;">Select Branch</label>
+            <select id="b-branch" class="form-control"
+              style="cursor: pointer; appearance: auto; background-color: #fff;">
+              <option value="">Select Branch...</option>
+              <option value="Main Branch (Talikoti)">Main Branch (Talikoti)</option>
+              <option value="Sub Branch (Muddebihal)">Sub Branch (Muddebihal)</option>
+            </select>
+          </div>
 
-        <div id="b-payment-note" style="margin-bottom: 30px; font-size: 0.95rem; font-weight: 500; color: var(--color-primary-dark); background: rgba(233, 30, 99, 0.05); padding: 12px; border-radius: 8px;">
-          <strong>🏪 At Parlour:</strong> Payment can be made directly at the parlour.
-        </div>
+          <div id="b-address-group" style="display: none; animation: fadeIn 0.3s ease;">
+            <div class="form-group" style="margin-bottom: 20px;">
+              <label class="form-label" style="font-weight: 600; color: #444;">Customer Address</label>
+              <textarea id="b-address" class="form-control" placeholder="House No, Street Name..." rows="2"></textarea>
+            </div>
+            <div class="form-row" style="display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap;">
+              <div class="form-group" style="flex: 1; min-width: 200px; margin-bottom: 0;">
+                <label class="form-label" style="font-weight: 600; color: #444;">Landmark</label>
+                <input type="text" id="b-landmark" class="form-control" placeholder="Near by landmark">
+              </div>
+              <div class="form-group" style="flex: 1; min-width: 200px; margin-bottom: 0;">
+                <label class="form-label" style="font-weight: 600; color: #444;">City / Area</label>
+                <input type="text" id="b-city" class="form-control" placeholder="City or Area name">
+              </div>
+            </div>
+          </div>
 
-        <button type="submit" class="btn btn-primary btn-block" style="width: 100%; padding: 14px; font-size: 1.1rem; border-radius: 50px;">
-          Confirm Booking on WhatsApp
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 8px; vertical-align: middle;">
-            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-          </svg>
-        </button>
-      </form>
+          <div class="form-row" style="display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap;">
+            <div class="form-group" style="flex: 1; min-width: 200px; margin-bottom: 0;">
+              <label class="form-label" style="font-weight: 600; color: #444;">Preferred Date</label>
+              <input type="date" id="b-date" class="form-control" required>
+            </div>
+            <div class="form-group" style="flex: 1; min-width: 200px; margin-bottom: 0;">
+              <label class="form-label" style="font-weight: 600; color: #444;">Preferred Time</label>
+              <select id="b-time" class="form-control" required>
+                <option value="">Select Time</option>
+                <option value="10:00 AM">10:00 AM</option>
+                <option value="10:30 AM">10:30 AM</option>
+                <option value="11:00 AM">11:00 AM</option>
+                <option value="11:30 AM">11:30 AM</option>
+                <option value="12:00 PM">12:00 PM</option>
+                <option value="12:30 PM">12:30 PM</option>
+                <option value="01:00 PM">01:00 PM</option>
+                <option value="01:30 PM">01:30 PM</option>
+                <option value="02:00 PM">02:00 PM</option>
+                <option value="02:30 PM">02:30 PM</option>
+                <option value="03:00 PM">03:00 PM</option>
+                <option value="03:30 PM">03:30 PM</option>
+                <option value="04:00 PM">04:00 PM</option>
+                <option value="04:30 PM">04:30 PM</option>
+                <option value="05:00 PM">05:00 PM</option>
+                <option value="05:30 PM">05:30 PM</option>
+                <option value="06:00 PM">06:00 PM</option>
+                <option value="06:30 PM">06:30 PM</option>
+                <option value="07:00 PM">07:00 PM</option>
+                <option value="07:30 PM">07:30 PM</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label class="form-label" style="font-weight: 600; color: #444;">Message (Optional)</label>
+            <textarea id="b-msg" class="form-control" placeholder="Any special requests?" rows="2"></textarea>
+          </div>
+
+          <div id="b-payment-note"
+            style="margin-bottom: 30px; font-size: 0.95rem; font-weight: 500; color: var(--color-primary-dark); background: rgba(233, 30, 99, 0.05); padding: 12px; border-radius: 8px;">
+            <strong>🏪 At Parlour:</strong> Payment can be made directly at the parlour.
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block"
+            style="width: 100%; padding: 14px; font-size: 1.1rem; border-radius: 50px;">
+            Confirm Booking on WhatsApp
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" style="margin-left: 8px; vertical-align: middle;">
+              <path
+                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+              </path>
+            </svg>
+          </button>
+        </form>
       </div>
 
     </div>
 
     <!-- Google Map Embed -->
-    <div class="map-container">
-      <iframe src="https://maps.google.com/maps?q=16.3577675,75.935647&t=h&z=18&ie=UTF8&iwloc=&output=embed"
-        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="map-container-wrapper">
+      <div class="map-box">
+        <h3 class="map-title">Main Branch (Talikoti)</h3>
+        <div class="map-container">
+          <iframe
+            src="https://maps.google.com/maps?q=Lotus+Beauty+zone,+Talikoti+Rural,+Talikot,+Karnataka+586214&t=m&z=15&output=embed"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <div class="map-box">
+        <h3 class="map-title">Sub Branch (Muddebihal)</h3>
+        <div class="map-container">
+          <iframe
+            src="https://maps.google.com/maps?q=Lotus+Beauty+zone,+Muddebihal,+Karnataka+586212&t=m&z=15&output=embed"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
     </div>
 
   </section>
@@ -284,8 +316,11 @@
       <div class="footer-col">
         <h4>Contact Info</h4>
         <ul class="footer-links" style="line-height: 1.6;">
-          <li><span style="display:block; font-weight:600; color:var(--color-accent-gold);">📍 Main Branch:</span> LOTUS BEAUTY ZONE, Mahendrakar Building, Vijay Nagar, Hunsagi Road, Talikoti - 586214</li>
-          <li style="margin-top:10px;"><span style="display:block; font-weight:600; color:var(--color-accent-gold);">📍 Sub Branch:</span> LOTUS BEAUTY ZONE, Raghavendra Temple, Mahantesh Nagar, Opp Gururaja Hittingirani, Muddebihal - 586212</li>
+          <li><span style="display:block; font-weight:600; color:var(--color-accent-gold);">📍 Main Branch:</span> LOTUS
+            BEAUTY ZONE, Mahendrakar Building, Vijay Nagar, Hunsagi Road, Talikoti - 586214</li>
+          <li style="margin-top:10px;"><span style="display:block; font-weight:600; color:var(--color-accent-gold);">📍
+              Sub Branch:</span> LOTUS BEAUTY ZONE, Raghavendra Temple, Mahantesh Nagar, Opp Gururaja Hittingirani,
+            Muddebihal - 586212</li>
           <li style="margin-top:10px;">📞 +91 70221 59756</li>
           <li>⏰ Mon - Sun: 9:00 AM - 8:00 PM</li>
         </ul>

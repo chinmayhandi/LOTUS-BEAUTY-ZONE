@@ -904,6 +904,25 @@ textarea.form-control {
   padding: 50px;
 }
 
+.map-container-wrapper {
+  display: flex;
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.map-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.map-title {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: var(--color-primary-dark);
+  text-align: center;
+}
+
 .map-container {
   margin-top: 50px;
   border-radius: var(--border-radius-md);
@@ -912,10 +931,25 @@ textarea.form-control {
   box-shadow: var(--shadow-sm);
 }
 
+.map-box .map-container {
+  margin-top: 0;
+  height: 350px;
+}
+
 .map-container iframe {
   width: 100%;
   height: 100%;
   border: none;
+}
+
+@media (max-width: 768px) {
+  .map-container-wrapper {
+    flex-direction: column;
+  }
+  
+  .map-box .map-container {
+    height: 300px;
+  }
 }
 
 /* Footer */

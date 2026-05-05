@@ -110,7 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
       services: [
         { name: "Facial", price: "₹500 to ₹2500", desc: "Rejuvenating facial treatments.", includes: "Cleansing, scrub, massage, face pack", location: "At Parlour" },
         { name: "Clean Up", price: "₹300", desc: "Quick and effective skin cleanup.", includes: "Cleansing, exfoliation, mask", location: "At Parlour" },
-        { name: "Bleach", price: "₹250", desc: "Skin brightening bleach treatment.", includes: "Bleach application and soothing lotion", location: "At Parlour" }
+        { name: "Bleach", price: "₹250", desc: "Skin brightening bleach treatment.", includes: "Bleach application and soothing lotion", location: "At Parlour" },
+        { name: "Hydra Facial", price: "₹2000 to ₹5000", desc: "Deep cleansing, hydration, and glowing skin treatment for instant visible results.", includes: "Deep cleanse, exfoliation, hydration", location: "At Parlour" }
       ]
     },
     {
@@ -122,9 +123,11 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: "manicure-pedicure",
-      categoryName: "9. MANICURE & PEDICURE",
+      categoryName: "9. NAIL CARE",
       services: [
-        { name: "Manicure & Pedicure", price: "₹700 to ₹1500", desc: "Complete care for your hands and feet.", includes: "Nail shaping, cuticle care, scrub, massage, polish", location: "At Parlour" }
+        { name: "Manicure", price: "₹700 to ₹1500", desc: "Complete care for your hands.", includes: "Nail shaping, cuticle care, scrub, massage, polish", location: "At Parlour" },
+        { name: "Pedicure", price: "₹700 to ₹1500", desc: "Complete care for your feet.", includes: "Nail shaping, cuticle care, scrub, massage, polish", location: "At Parlour" },
+        { name: "Nail Art", price: "₹1500 - ₹2500", desc: "Creative and beautiful nail art designs.", includes: "Custom nail art, gel polish", location: "At Parlour" }
       ]
     },
     {
